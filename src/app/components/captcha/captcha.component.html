@@ -1,5 +1,10 @@
 <div *ngIf="key | async">
-    <recaptcha (resolved)="onResponse($event)" (ngModelChange)="onResponse($event)" name="captcha" [siteKey]="key | async"></recaptcha>
+    <recaptcha
+        ngModel
+        (resolved)="onResponse($event)"
+        name="captcha"
+        [siteKey]="key | async">
+    </recaptcha>
 </div>
 <div *ngIf="!(key | async)">
     <div class="loader"></div>

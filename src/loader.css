@@ -41,24 +41,21 @@
 
 
 .loader {
-  background-image: url(https://angular.io/resources/images/logos/angular2/angular.png);
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	z-index: 1;
-	width: 250px;
-	height:250px;
-	margin: -125px 0 0 -125px;
-	-webkit-animation: spin 10s linear infinite;
-	animation: spin 10s linear infinite;
-	border: 8px solid #ccc;
+	width: 50px;
+	height:50px;
+	margin: -25px 0 0 -25px;
+	-webkit-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+	border: 12px solid #ccc;
 	border-color: #000 #ccc #000 #ccc;
 	border-radius: 50%;
-	border: none;
 }
 
 @keyframes spin {
-	0% { transform: rotate(-90deg); }
-	50% { transform: rotate(90deg); }
-	100% { transform: rotate(270deg); }
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
