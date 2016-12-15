@@ -24,11 +24,16 @@ const normalizeValidator =
   }
 };
 
-export const composeValidators =
+const composeValidators =
     (validators: ValidatorArray): AsyncValidatorFn | ValidatorFn => 
   validators == null || validators.length === 0
     ? null
     : Validators.compose(validators.map(normalizeValidator));
+    
+const combineResults = (...results: Array<ValidationResult>): ValidationResult =>
+  results.every(r => r == null)
+    ? null
+    : Object.assign({}, ...results);
 
 export const validate =
     (validators: ValidatorArray, asyncValidators: AsyncValidatorArray) => {
@@ -36,14 +41,10 @@ export const validate =
     const synchronousValid = () => composeValidators(validators)(control);
 
     if (asyncValidators) {
-      const asyncValidator = composeValidators(asyncValidators);
-
-      return asyncValidator(control).map(v => {
-        const secondary = synchronousValid();
-        if (secondary || v) { // compose async and sync validator results
-          return Object.assign({}, secondary, v);
-        }
-      });
+      return composeValidators
+        (asyncValidators)
+        (control)
+          .map(result => combineResults(result, synchronousValid()));
     }
 
     return validators
