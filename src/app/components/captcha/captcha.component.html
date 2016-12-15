@@ -1,8 +1,6 @@
 <div *ngIf="key | async">
-    <re-captcha [site_key]="key | async" (captchaResponse)="onResponse($event)"></re-captcha>
+    <recaptcha (resolved)="onResponse($event)" (ngModelChange)="onResponse($event)" name="captcha" [siteKey]="key | async"></recaptcha>
 </div>
 <div *ngIf="!(key | async)">
     <div class="loader"></div>
 </div>
-
-<div class="g-recaptcha" [attr.data-sitekey]="key | async"></div>

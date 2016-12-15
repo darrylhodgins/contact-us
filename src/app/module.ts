@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
-import {ReCaptchaModule} from 'angular2-recaptcha';
+import { RecaptchaModule } from 'ng2-recaptcha';
 
 import * as components from './components';
 
@@ -15,7 +15,7 @@ import * as services from './services';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    ReCaptchaModule,
+    RecaptchaModule.forRoot(),
   ],
   declarations: [
     components.AppComponent,

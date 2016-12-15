@@ -41,7 +41,7 @@
 
 
 .loader {
-  background-image: url(https://platform-user-uploads.s3.amazonaws.com/blog/category/logo/291/react.png);
+  background-image: url(https://angular.io/resources/images/logos/angular2/angular.png);
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -58,6 +58,7 @@
 }
 
 @keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
+	0% { transform: rotate(-90deg); }
+	50% { transform: rotate(90deg); }
+	100% { transform: rotate(270deg); }
 }
