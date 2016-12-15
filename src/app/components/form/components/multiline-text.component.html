@@ -1,9 +1,9 @@
 <div>
-    <input
-        type="text"
+    <textarea
         [placeholder]="placeholder || ''"
         [(ngModel)]="value"
-        [ngClass]="{invalid: (invalid | async) && model.control.touched}" />
+        [ngClass]="{invalid: (invalid | async) && model.control.touched}">
+    </textarea>
     <validation-failures
         *ngIf="(invalid | async) && model.control.touched"
         [failures]="failures | async">

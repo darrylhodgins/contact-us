@@ -10,9 +10,9 @@
     </div>
     
     <div>
-        <text required name="message" placeholder="Your message" ngModel>
+        <multiline-text required name="message" placeholder="Your message" ngModel>
             <!-- We don't need to bind the ngModel, because we're just using it on the form anyway -->
-        </text>
+        </multiline-text>
     </div>
     
     <div>
@@ -21,9 +21,32 @@
         </label>
         <radio-group
             name="responseRequired"
-            [options]="responseOptions"
+            [options]="[
+              {label: 'Yes', value: true},
+              {label: 'No', value: false}]"
             [(ngModel)]="responseRequired">
         </radio-group><!-- TODO: use projection -->
+
+        <div ngModelGroup="contact" *ngIf="responseRequired">
+            <h3>Contact Information</h3>    
+            <text required name="firstName" placeholder="First Name" ngModel></text>
+            <text required name="lastName" placeholder="Last Name" ngModel></text>
+            
+            <div>
+                <label>How should we contact you?</label>
+                <radio-group
+                    name="method"
+                    [options]="[
+                      {label: 'Email', value: 'email'},
+                      {label: 'Phone', value: 'phone'}]"
+                    [(ngModel)]="method">
+                </radio-group>
+                
+                <div *ngIf="method === 'email'">
+                    <text required email name="email-address" ngModel></text>
+                </div>
+            </div>
+        </div>
     </div>
     
     <button type="submit" [disabled]="!form.valid"><span *ngIf="!form.valid">You Can't </span>Submit</button>

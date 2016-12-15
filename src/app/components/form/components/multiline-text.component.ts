@@ -18,16 +18,16 @@ import {ElementBase} from '../element-base';
 import {ValidatorArray} from '../validate';
 
 @Component({
-    selector: 'text',
-    templateUrl: './text.component.html',
+    selector: 'multiline-text',
+    templateUrl: './multiline-text.component.html',
     styleUrls: ['./form.scss'],
     providers: [{
         provide: NG_VALUE_ACCESSOR,
-        useExisting: TextComponent,
+        useExisting: MultilineTextComponent,
         multi: true,
     }]
 })
-export class TextComponent extends ElementBase<string> {
+export class MultilineTextComponent extends ElementBase<string> {
     @Input() public placeholder: string;
 
     @ViewChild(NgModel) public model: NgModel;

@@ -18,8 +18,10 @@ import * as services from './services';
     components.AppComponent,
     components.DropdownComponent,
     components.TextComponent,
+    components.MultilineTextComponent,
     components.ValidationFailuresComponent,
     components.RadioGroupComponent,
+    components.EmailValidator,
   ],
   bootstrap: [
     components.AppComponent,
