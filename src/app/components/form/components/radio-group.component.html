@@ -1,0 +1,6 @@
+<button
+        *ngFor="let item of options"
+        (click)="onSelect(item)"
+        [ngClass]="{selected: isSelected(item)}">
+    {{item.label}}
+</button>

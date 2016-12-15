@@ -1,1 +1,30 @@
-Application
+<form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+    <div>
+        <label class="inline-block">Reason for Contact</label>
+        <dropdown required name="reason" [(ngModel)]="reason" placeholder="Select a reason">
+            <option value="TECHNICAL">a technical matter</option>
+            <option value="PRODUCT">a product matter</option>
+            <option value="SUPPORT">a support matter</option>
+            <option value="GENERAL">general feedback</option>
+        </dropdown>
+    </div>
+    
+    <div>
+        <text required name="message" placeholder="Your message" ngModel>
+            <!-- We don't need to bind the ngModel, because we're just using it on the form anyway -->
+        </text>
+    </div>
+    
+    <div>
+        <label>
+            Do you require a response?
+        </label>
+        <radio-group
+            name="responseRequired"
+            [options]="responseOptions"
+            [(ngModel)]="responseRequired">
+        </radio-group><!-- TODO: use projection -->
+    </div>
+    
+    <button type="submit" [disabled]="!form.valid"><span *ngIf="!form.valid">You Can't </span>Submit</button>
+</form>

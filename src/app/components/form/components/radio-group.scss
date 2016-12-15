@@ -1,0 +1,12 @@
+button {
+    background-color: white;
+    border: 1px solid blue;
+    color: royalblue;
+    
+    &.selected {
+        background-color: royalblue;
+        color: white;
+    }
+}
+
+

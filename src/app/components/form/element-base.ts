@@ -19,7 +19,7 @@ export abstract class ElementBase<T> extends ValueAccessorBase<T> {
     private validators: ValidatorArray,
     private asyncValidators: AsyncValidatorArray,
   ) {
-    super();
+    super(); // thanks for asking!
   }
 
   protected validate(): Observable<ValidationResult> {

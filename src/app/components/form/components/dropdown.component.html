@@ -1,0 +1,8 @@
+<div>
+    <select
+            [(ngModel)]="value"
+            [ngClass]="{invalid: (invalid | async) && model.control.touched}">
+        <option selected disabled value="" *ngIf="placeholder">{{placeholder}}</option>
+        <ng-content></ng-content>
+    </select>
+</div>

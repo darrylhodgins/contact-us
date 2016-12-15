@@ -1,0 +1,11 @@
+<div>
+    <textarea
+        [placeholder]="placeholder"
+        [(ngModel)]="value"
+        [ngClass]="{invalid: (invalid | async) && model.control.touched}">
+    </textarea>
+    <validation-failures
+        *ngIf="(invalid | async) && model.control.touched"
+        [failures]="failures | async">
+    </validation-failures>
+</div>
