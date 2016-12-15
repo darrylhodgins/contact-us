@@ -19,6 +19,7 @@
         <label>
             Do you require a response?
         </label>
+        
         <radio-group
             name="responseRequired"
             [options]="[
@@ -29,11 +30,13 @@
 
         <div ngModelGroup="contact" *ngIf="responseRequired">
             <h3>Contact Information</h3>    
+
             <text required name="firstName" placeholder="First Name" ngModel></text>
             <text required name="lastName" placeholder="Last Name" ngModel></text>
             
             <div>
                 <label>How should we contact you?</label>
+                
                 <radio-group
                     name="method"
                     [options]="[
@@ -45,8 +48,15 @@
                 <div *ngIf="method === 'email'">
                     <text required email name="email-address" placeholder="Email address" ngModel></text>
                 </div>
+                <div *ngIf="method === 'phone'">
+                    <text required phone name="phone" placeholder="Phone number" ngModel></text>
+                </div>
             </div>
         </div>
+    </div>
+    
+    <div>
+        <captcha></captcha>
     </div>
     
     <button type="submit" [disabled]="!form.valid"><span *ngIf="!form.valid">You Can't </span>Submit</button>

@@ -1,4 +1,4 @@
-.loader {
+/*.loader {
   height: 4px;
   width: 100%;
   position: relative;
@@ -37,4 +37,27 @@
   to {
     left: 100%;
   }
+}*/
+
+
+.loader {
+  background-image: url(https://platform-user-uploads.s3.amazonaws.com/blog/category/logo/291/react.png);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	width: 250px;
+	height:250px;
+	margin: -125px 0 0 -125px;
+	-webkit-animation: spin 10s linear infinite;
+	animation: spin 10s linear infinite;
+	border: 8px solid #ccc;
+	border-color: #000 #ccc #000 #ccc;
+	border-radius: 50%;
+	border: none;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
