@@ -41,10 +41,9 @@ export const validate =
     const synchronousValid = () => composeValidators(validators)(control);
 
     if (asyncValidators) {
-      return composeValidators
-        (asyncValidators)
-        (control)
-          .map(result => combineResults(result, synchronousValid()));
+      const asyncResult = composeValidators(asyncValidators)(control);
+      
+      return asyncResult.map(result => combineResults(result, synchronousValid()));
     }
 
     return validators

@@ -28,6 +28,7 @@ import * as services from './services';
     components.EmailValidator,
     components.PhoneValidator,
     components.CaptchaValidator,
+    components.NamesValidator,
   ],
   bootstrap: [
     components.AppComponent,

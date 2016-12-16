@@ -28,12 +28,14 @@
             [(ngModel)]="responseRequired">
         </radio-group><!-- TODO: use projection -->
 
-        <div ngModelGroup="contact" *ngIf="responseRequired">
-            <h3>Contact Information</h3>    
-
-            <text required name="firstName" placeholder="First Name" ngModel></text>
-            <text required name="lastName" placeholder="Last Name" ngModel></text>
-            
+        <div *ngIf="responseRequired" ngModelGroup="contact">
+            <!-- div names-validator ngModelGroup="names" -->
+            <div ngModelGroup="names"> 
+                <h3>Contact Information</h3>    
+    
+                <text required name="firstName" placeholder="First Name" ngModel></text>
+                <text required name="lastName" placeholder="Last Name" ngModel></text>
+            </div>
             <div>
                 <label>How should we contact you?</label>
                 
